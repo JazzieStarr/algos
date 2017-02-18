@@ -11,7 +11,7 @@ using namespace std;
 \param [in] data The data set that will be sorted
 
 */
-void insertionSort(auto& data);//prototype
+/*void insertionSort(auto& data);//prototype
 
 void insertionSort(auto& data)
 {
@@ -35,7 +35,32 @@ void insertionSort(auto& data)
 				
 		}
 
+}*/
+
+void selectionSort (auto& data)
+{
+int passes = 0;
+	for (int i=0; i<data.size(); i++)
+	{
+		int min=i;
+		for (int j=i+1; j<data.size(); j++)
+			{
+				if (data[j]<data[min])
+					min=j;
+			}
+			swap (data[i],data[min]);
+                        passes = passes+1;
+		if (passes % 20000 == 0)
+				{
+					cout << "You have completed " << passes << " passes.";
+				}
+				
+
+	}
 }
+		
+
+
 
 int main()
 {
@@ -61,11 +86,11 @@ int main()
       cout<<endl<<"No input received, quiting..."<<endl<<endl;
        exit(1);//nothing to do but quit program
   }
-  insertionSort(inputs);
-  for (int i=0; i<inputs.size();i++)	
+  selectionSort(inputs);
+  /*for (int i=0; i<inputs.size();i++)	
 		{
 			cout << inputs[i] << " ";
-		}
+		}*/
  /* cout<<endl<<"To end input type the #-character (followed by Enter)"<<endl<<endl;
     cout<<"Enter a value to search for: ";
 
