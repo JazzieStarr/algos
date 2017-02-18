@@ -15,6 +15,9 @@ void insertionSort(auto& data);//prototype
 
 void insertionSort(auto& data)
 {
+	
+	
+	int passes=0;
 	for(int i=0; i<data.size()-1; i++)
 		{
 			int j=i+1;
@@ -23,7 +26,15 @@ void insertionSort(auto& data)
 					swap (data[j],data[j-1]);
 					j=j-1;
 				}
+			passes=passes+1;
+		
+			if (passes%20000==0)
+				{
+					cout << "You have completed " << passes << " passes.";
+				}
+				
 		}
+
 }
 
 int main()
